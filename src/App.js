@@ -1,25 +1,32 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
+import { useFetch } from './hooks/useFetch';
 import './App.css';
+import Navbar from 'components/common/Navbar';
+import Footer from 'components/Footer';
+import Button from 'components/common/Button';
+import Hero from 'components/Hero';
 
 function App() {
+  const [shortLink, setShortLink] = useState([]);
+
+  const url =
+    'https://api.shrtco.de/v2/shorten?url=https://styled-components.com/docs/basics';
+  const { data, isPending, error } = useFetch(url);
+  const { short_link } = data;
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div>
+      <header>
+        <Navbar />
       </header>
+      <main>
+        <Hero />
+        {isPending && <p>Loading</p>}
+        <a href='/'>{data && <p>{short_link}</p>}</a>
+      </main>
+      <Footer />
     </div>
   );
 }
 
 export default App;
+
