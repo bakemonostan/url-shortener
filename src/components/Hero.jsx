@@ -1,12 +1,14 @@
 import styled from 'styled-components';
 import { heroImg } from 'images';
+import InputBar from './common/InputBar';
 
 const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   position: relative;
   max-width: 575px;
-  margin: 0 auto;
+  margin: 0 auto 4rem;
+  /* height: 80vh; */
 
   @media (min-width: 765px) {
     flex-direction: row-reverse;
@@ -96,6 +98,7 @@ const Hero = () => {
         </p>
         <HeroButton>Get Started</HeroButton>
       </HeroWrapper>
+      <InputBar />
     </Wrapper>
   );
 };

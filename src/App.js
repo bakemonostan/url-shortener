@@ -3,8 +3,8 @@ import { useFetch } from './hooks/useFetch';
 import './App.css';
 import Navbar from 'components/common/Navbar';
 import Footer from 'components/Footer';
-import Button from 'components/common/Button';
 import Hero from 'components/Hero';
+import CardSection from 'components/CardSection';
 
 function App() {
   const [shortLink, setShortLink] = useState([]);
@@ -20,6 +20,7 @@ function App() {
       </header>
       <main>
         <Hero />
+        <CardSection />
         {isPending && <p>Loading</p>}
         <a href='/'>{data && <p>{short_link}</p>}</a>
       </main>
