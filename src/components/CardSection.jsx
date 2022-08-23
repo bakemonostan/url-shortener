@@ -4,8 +4,8 @@ import { HeroWrapper } from './Hero';
 
 const Wrapper = styled.section`
   background-color: hsl(0, 0%, 90%);
-  height: 100vh;
-  padding-top: 10rem;
+  padding: 10rem 0 2rem 0;
+  margin: 0 auto;
 
   @media (min-width: 765px) {
     padding-top: 2rem;
@@ -20,6 +20,9 @@ const Info = styled(HeroWrapper)`
 
 const CardWrapper = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 `;
 
 const CardSection = () => {
@@ -33,6 +36,8 @@ const CardSection = () => {
         </p>
       </Info>
       <CardWrapper>
+        <Card />
+        <Card />
         <Card />
       </CardWrapper>
     </Wrapper>
