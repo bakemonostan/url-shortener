@@ -7,13 +7,13 @@ const Wrapper = styled.section`
   flex-direction: column;
   position: relative;
   max-width: 575px;
-  margin: 0 auto 4rem;
-  /* height: 80vh; */
+  margin: 0 auto 12rem;
 
   @media (min-width: 765px) {
     flex-direction: row-reverse;
     max-width: 2500px;
     width: 90%;
+    margin: 0 auto 4rem;
   }
 `;
 
@@ -41,7 +41,7 @@ const ImgWrapper = styled.div`
   }
 `;
 
-const HeroWrapper = styled.div`
+export const HeroWrapper = styled.div`
   text-align: center;
   max-width: 320px;
   margin: 0 auto;
