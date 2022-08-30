@@ -15,3 +15,13 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+img {
+  width: 100%;
+  display: block;
+}
+
+@media (min-width: 1200px) {
+  body {
+  }
+}
+

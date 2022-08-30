@@ -1,87 +1,63 @@
 import styled from 'styled-components';
 import { heroImg } from 'images';
-import InputBar from './common/InputBar';
 
 const Wrapper = styled.section`
   display: flex;
-  flex-direction: column;
+  flex-flow: column wrap;
+  margin: 0 auto;
+  margin-bottom: 4rem;
+  max-width: 375px;
   position: relative;
-  max-width: 575px;
-  margin: 0 auto 12rem;
+  padding: 0 2rem;
 
-  @media (min-width: 765px) {
-    flex-direction: row-reverse;
-    max-width: 2500px;
-    width: 90%;
-    margin: 0 auto 4rem;
+  @media (min-width: 965px) {
+    flex-flow: row-reverse;
+    max-width: 1440px;
+    padding: 0 6rem;
+    margin-bottom: 8rem;
   }
 `;
 
 const ImgWrapper = styled.div`
-  background: url(${heroImg});
-  background-repeat: no-repeat;
-  background-position: 30px;
-  background-size: 450px;
-  padding: 150px;
-  object-fit: cover;
-  margin-bottom: 3rem;
-
-  img {
-    display: none;
-  }
-
-  @media (min-width: 765px) {
-    padding: 0;
-    background: none;
-    width: 50%;
-
-    img {
-      display: block;
-    }
+  @media (min-width: 965px) {
+    position: relative;
+    right: -100px;
   }
 `;
 
-export const HeroWrapper = styled.div`
+export const HeroInfo = styled.div`
   text-align: center;
-  max-width: 320px;
   margin: 0 auto;
+  width: 300px;
+  padding: 3rem 0;
+
   h1 {
-    font-size: 2.3rem;
+    font-size: clamp(1.21rem, calc(0.27rem + 3.98vw), 3.86rem);
     line-height: 1.2;
+    padding: 1rem 0;
   }
-
   p {
-    padding: 1rem 0.5rem;
-    font-size: 1rem;
-    color: gray;
-    margin: 0 0 1rem;
+    font-size: clamp(0.87rem, calc(0.75rem + 0.5vw), 1.2rem);
+    padding: 0 0 1rem;
   }
-  @media (min-width: 765px) {
-    max-width: 450px;
-    text-align: left;
-    margin: 7rem auto 0;
 
-    h1 {
-      font-size: 3.5rem;
-    }
-    p {
-      padding: 0.5rem 0;
-      font-size: 1.1rem;
-      margin: 0 0 1.5rem;
-      line-height: 1.8;
-    }
-  }
+  @media (min-width: 965px) {
+    text-align: left;
+    width: 50%;
+  } ;
 `;
 
 const HeroButton = styled.button`
+  margin-top: 2rem;
   background-color: limegreen;
-  padding: 1rem;
-  width: 180px;
-  border-radius: 40px;
+  padding: 1rem 3rem;
   border: none;
+  border-radius: 50px;
   color: white;
-  font-size: 1.3rem;
-  font-weight: 700;
+  font-weight: bold;
+  @media (min-width: 965px) {
+    margin-top: 1rem;
+  }
 `;
 
 const Hero = () => {
@@ -90,15 +66,14 @@ const Hero = () => {
       <ImgWrapper>
         <img src={heroImg} alt='' />
       </ImgWrapper>
-      <HeroWrapper>
+      <HeroInfo>
         <h1>More than just shorter links</h1>
         <p>
           Build your brand's recognition and get detailed insights on how your
           links are performing
         </p>
         <HeroButton>Get Started</HeroButton>
-      </HeroWrapper>
-      <InputBar />
+      </HeroInfo>
     </Wrapper>
   );
 };

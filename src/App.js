@@ -5,25 +5,22 @@ import Navbar from 'components/common/Navbar';
 import Footer from 'components/Footer';
 import Hero from 'components/Hero';
 import CardSection from 'components/CardSection';
+import { UrlProvider } from 'UrlContext';
+import Boost from 'components/Boost';
 
 function App() {
-  const [shortLink, setShortLink] = useState([]);
-
-  const url =
-    'https://api.shrtco.de/v2/shorten?url=https://styled-components.com/docs/basics';
-  const { data, isPending, error } = useFetch(url);
-  const { short_link } = data;
   return (
     <div>
       <header>
         <Navbar />
       </header>
       <main>
-        <Hero />
-        <CardSection />
-        {isPending && <p>Loading</p>}
-        <a href='/'>{data && <p>{short_link}</p>}</a>
+        <UrlProvider>
+          <Hero />
+          <CardSection />
+        </UrlProvider>
       </main>
+      <Boost />
       <Footer />
     </div>
   );

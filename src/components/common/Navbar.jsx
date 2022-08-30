@@ -3,17 +3,14 @@ import { logo } from 'images';
 import { useState } from 'react';
 
 const Wrapper = styled.nav`
-  padding: 2rem 0;
+  padding: 2rem 2rem 0.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
   gap: 2rem;
-  width: 80%;
+  max-width: 300px;
   margin: 0 auto;
-
-  @media (min-width: 1024px) {
-  }
 
   .logo img {
     width: 100px;
@@ -22,9 +19,6 @@ const Wrapper = styled.nav`
   .menu {
     margin-bottom: 5px;
     cursor: pointer;
-    @media (min-width: 1024px) {
-      display: none;
-    }
   }
 
   .menu > div {
@@ -32,6 +26,15 @@ const Wrapper = styled.nav`
     width: 30px;
     height: 3px;
     margin: 0 0 0.3rem 0;
+  }
+
+  @media (min-width: 965px) {
+    padding: 2rem 6rem;
+    max-width: 1440px;
+
+    .menu {
+      display: none;
+    }
   }
 `;
 
@@ -64,7 +67,7 @@ const NavList = styled.ul`
 const NavListDesktop = styled.ul`
   display: none;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 965px) {
     display: flex;
     justify-content: space-between;
     align-items: center;

@@ -23,7 +23,7 @@ export const useFetch = (url, method = 'GET') => {
         const data = await response.json();
         const { result } = data;
         setIsPending(false);
-        setData(result);
+        setData(result.short_link);
         setError(null);
       } catch (error) {
         if (error.name === 'AbortError') {
@@ -41,7 +41,7 @@ export const useFetch = (url, method = 'GET') => {
     return () => {
       controller.abort();
     };
-  }, [url, method]);
+  }, [method, url]);
 
   // * Custom hooks always return something
   return { data, isPending, error };
