@@ -1,8 +1,7 @@
 import styled from 'styled-components';
-import { boostdesktop, boostmobile } from 'images';
-import { useContext, useEffect, useState } from 'react';
+import { boostmobile } from 'images';
+import { useContext } from 'react';
 import UrlContext from 'UrlContext';
-import { useFetch } from 'hooks/useFetch';
 
 const Wrapper = styled.form`
   background-image: linear-gradient(

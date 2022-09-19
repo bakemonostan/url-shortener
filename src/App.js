@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react';
-import { useFetch } from './hooks/useFetch';
 import './App.css';
 import Navbar from 'components/common/Navbar';
 import Footer from 'components/Footer';
