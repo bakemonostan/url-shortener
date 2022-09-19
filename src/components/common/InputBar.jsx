@@ -27,23 +27,36 @@ const Wrapper = styled.form`
   left: 0;
   right: 0;
   font-size: clamp(0.87rem, calc(0.75rem + 0.5vw), 1.2rem);
-
+  border-radius: 5px;
   input {
     padding: 0.7rem;
     flex: 0 0 88%;
   }
 
   @media (min-width: 965px) {
-    top: -40px;
+    padding: 2rem;
+    top: -50px;
     max-width: 1440px;
+    input {
+      padding: 0.7rem;
+      flex: 1 0 80%;
+    }
   }
 `;
 
 const InputBtn = styled.button`
-  padding: 0.7rem;
+  padding: 0.8rem;
   flex: 0 0 88%;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  background: hsl(180, 66%, 49%);
+  cursor: pointer;
+  &:hover {
+    background: hsl(180, 66%, 65%);
+  }
   @media (min-width: 965px) {
-    flex: 0 0 auto;
+    flex: 1 0 auto;
   }
 `;
 
@@ -57,6 +70,7 @@ const InputBar = () => {
         className='input'
         value={userInput}
         onChange={(e) => setUserInput(e.target.value)}
+        placeholder='Shorten a link here...'
       />
       <InputBtn>Shorten It!</InputBtn>
     </Wrapper>
