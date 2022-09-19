@@ -2,11 +2,10 @@ import styled from 'styled-components';
 import { logofooter, ig, pintrest, twitter, fb } from 'images';
 
 const Wrapper = styled.footer`
-  background: black;
+  background: hsl(260, 8%, 14%);
   .container {
     display: flex;
     flex-flow: column wrap;
-    background: black;
     text-align: center;
     padding: 2rem 0;
     margin: 0 auto;
@@ -47,6 +46,7 @@ const Wrapper = styled.footer`
 
     .links {
       display: flex;
+      flex: 1 0 auto;
     }
     .logo {
       flex: 1 0 150px;
@@ -61,6 +61,7 @@ const Wrapper = styled.footer`
 
     .socials > img {
       width: 22px;
+      cursor: pointer;
     }
   }
 `;
@@ -75,6 +76,10 @@ const WrapperTwo = styled.div`
   li {
     list-style: none;
     line-height: 2.2;
+    &:hover {
+      color: hsl(180, 66%, 49%);
+      cursor: pointer;
+    }
   }
 
   @media (min-width: 785px) {
@@ -83,15 +88,15 @@ const WrapperTwo = styled.div`
   }
 `;
 
-const FooterLinks = () => {
+const FooterLinks = ({ links, title }) => {
   return (
     <>
       <WrapperTwo>
         <h3>Features</h3>
         <ul>
-          <li>link Shortening</li>
-          <li>Branded Links</li>
-          <li>Analytics</li>
+          {links.map((link, i) => {
+            return <li key={i}>{link}</li>;
+          })}
         </ul>
       </WrapperTwo>
     </>
@@ -99,6 +104,10 @@ const FooterLinks = () => {
 };
 
 const Footer = () => {
+  const link1 = ['Link Shortening', 'Branded Links', ' Analytics'];
+  const link2 = ['Blog', 'Developers', 'Support'];
+  const link3 = ['About', 'Our Teams', 'Careers', 'Contact'];
+
   return (
     <Wrapper>
       <div className='container'>
@@ -106,15 +115,15 @@ const Footer = () => {
           <img src={logofooter} alt='' />
         </div>
         <div className='links'>
-          <FooterLinks />
-          <FooterLinks />
-          <FooterLinks />
+          <FooterLinks links={link1} title='Features' />
+          <FooterLinks links={link2} title='Resources' />
+          <FooterLinks links={link3} title='Company' />
         </div>
 
         <div className='socials'>
-          <img src={ig} alt='' />
-          <img src={ig} alt='' />
-          <img src={ig} alt='' />
+          <img src={fb} alt='' />
+          <img src={twitter} alt='' />
+          <img src={pintrest} alt='' />
           <img src={ig} alt='' />
         </div>
       </div>

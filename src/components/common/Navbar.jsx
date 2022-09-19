@@ -43,8 +43,8 @@ const NavList = styled.ul`
   position: absolute;
   list-style: none;
   display: ${(p) => (p.show ? 'block' : 'none')};
-  background: aliceblue;
-  width: 90%;
+  background: hsl(257, 27%, 26%);
+  width: 100%;
   margin: 0 auto;
   left: 0;
   right: 0;
@@ -57,6 +57,7 @@ const NavList = styled.ul`
 
   li {
     padding: 0.5rem;
+    font-weight: bold;
   }
 
   .list_one,
@@ -98,6 +99,7 @@ const NavButton = styled.button`
   color: white;
   font-weight: bold;
   cursor: pointer;
+  width: 80%;
   &:hover {
     background-color: hsl(180, 66%, 65%);
   }
@@ -143,7 +145,9 @@ const Navbar = () => {
         </div>
         <div className='list_two'>
           <li>Login</li>
-          <li>Sign up</li>
+          <NavButton>
+            <li>Sign up</li>
+          </NavButton>
         </div>
       </NavList>
     </Wrapper>
