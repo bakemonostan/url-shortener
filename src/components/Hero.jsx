@@ -49,12 +49,15 @@ export const HeroInfo = styled.div`
 
 const HeroButton = styled.button`
   margin-top: 2rem;
-  background-color: limegreen;
+  background-color: hsl(180, 66%, 49%);
   padding: 1rem 3rem;
   border: none;
   border-radius: 50px;
   color: white;
   font-weight: bold;
+  &:hover {
+    background-color: hsl(180, 66%, 65%);
+  }
   @media (min-width: 965px) {
     margin-top: 1rem;
   }

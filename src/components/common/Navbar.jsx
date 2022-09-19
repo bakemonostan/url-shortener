@@ -11,6 +11,7 @@ const Wrapper = styled.nav`
   gap: 2rem;
   max-width: 80%;
   margin: 0 auto;
+  color: hsl(257, 7%, 63%);
 
   .logo img {
     width: 100px;
@@ -22,7 +23,7 @@ const Wrapper = styled.nav`
   }
 
   .menu > div {
-    background-color: gray;
+    background: gray;
     width: 30px;
     height: 3px;
     margin: 0 0 0.3rem 0;
@@ -42,7 +43,7 @@ const NavList = styled.ul`
   position: absolute;
   list-style: none;
   display: ${(p) => (p.show ? 'block' : 'none')};
-  background-color: aliceblue;
+  background: aliceblue;
   width: 90%;
   margin: 0 auto;
   left: 0;
@@ -81,6 +82,30 @@ const NavListDesktop = styled.ul`
       gap: 1rem;
       cursor: pointer;
     }
+    li {
+      &:hover {
+        color: hsl(255, 11%, 22%);
+      }
+    }
+  }
+`;
+
+const NavButton = styled.button`
+  background: hsl(180, 66%, 49%);
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  &:hover {
+    background-color: hsl(180, 66%, 65%);
+  }
+
+  li {
+    &:hover {
+      color: white;
+    }
   }
 `;
 
@@ -100,7 +125,9 @@ const Navbar = () => {
         </div>
         <div>
           <li>Login</li>
-          <li>Sign up</li>
+          <NavButton>
+            <li>Sign up</li>
+          </NavButton>
         </div>
       </NavListDesktop>
       <div className='menu' onClick={() => setMenu(!menu)}>
