@@ -2,13 +2,15 @@ import styled from 'styled-components';
 import { logofooter, ig, pintrest, twitter, fb } from 'images';
 
 const Wrapper = styled.footer`
-  display: flex;
-  flex-flow: column wrap;
   background: black;
-  text-align: center;
-  padding: 2rem 0;
-  margin: 0 auto;
-
+  .container {
+    display: flex;
+    flex-flow: column wrap;
+    background: black;
+    text-align: center;
+    padding: 2rem 0;
+    margin: 0 auto;
+  }
   .logo {
     padding: 2.2rem;
   }
@@ -36,9 +38,12 @@ const Wrapper = styled.footer`
   }
 
   @media (min-width: 785px) {
-    flex-direction: row;
-    text-align: left;
-    gap: 1rem;
+    .container {
+      flex-direction: row;
+      text-align: left;
+      gap: 1rem;
+      max-width: 1440px;
+    }
 
     .links {
       display: flex;
@@ -96,20 +101,22 @@ const FooterLinks = () => {
 const Footer = () => {
   return (
     <Wrapper>
-      <div className='logo'>
-        <img src={logofooter} alt='' />
-      </div>
-      <div className='links'>
-        <FooterLinks />
-        <FooterLinks />
-        <FooterLinks />
-      </div>
+      <div className='container'>
+        <div className='logo'>
+          <img src={logofooter} alt='' />
+        </div>
+        <div className='links'>
+          <FooterLinks />
+          <FooterLinks />
+          <FooterLinks />
+        </div>
 
-      <div className='socials'>
-        <img src={ig} alt='' />
-        <img src={ig} alt='' />
-        <img src={ig} alt='' />
-        <img src={ig} alt='' />
+        <div className='socials'>
+          <img src={ig} alt='' />
+          <img src={ig} alt='' />
+          <img src={ig} alt='' />
+          <img src={ig} alt='' />
+        </div>
       </div>
     </Wrapper>
   );

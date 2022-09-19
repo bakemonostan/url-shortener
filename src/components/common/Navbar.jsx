@@ -3,13 +3,13 @@ import { logo } from 'images';
 import { useState } from 'react';
 
 const Wrapper = styled.nav`
-  padding: 2rem 2rem 0.5rem;
+  padding: 2rem 0 0.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
   gap: 2rem;
-  max-width: 300px;
+  max-width: 80%;
   margin: 0 auto;
 
   .logo img {
@@ -28,7 +28,7 @@ const Wrapper = styled.nav`
     margin: 0 0 0.3rem 0;
   }
 
-  @media (min-width: 965px) {
+  @media (min-width: 765px) {
     padding: 2rem 6rem;
     max-width: 1440px;
 
@@ -67,7 +67,7 @@ const NavList = styled.ul`
 const NavListDesktop = styled.ul`
   display: none;
 
-  @media (min-width: 965px) {
+  @media (min-width: 765px) {
     display: flex;
     justify-content: space-between;
     align-items: center;

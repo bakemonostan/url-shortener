@@ -35,6 +35,7 @@ const Wrapper = styled.form`
 
   @media (min-width: 965px) {
     top: -40px;
+    max-width: 1440px;
   }
 `;
 

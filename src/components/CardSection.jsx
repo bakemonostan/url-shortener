@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Card from './common/Card';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import UrlContext from 'UrlContext';
 import InputBar from './common/InputBar';
 
@@ -9,11 +9,6 @@ const Wrapper = styled.section`
   padding-top: 8rem;
   margin: 0 auto;
   position: relative;
-
-  .link {
-  }
-  @media (min-width: 765px) {
-  }
 `;
 
 const Info = styled.div`
@@ -57,8 +52,6 @@ const CardSection = () => {
   return (
     <Wrapper>
       <InputBar />
-      {/* <InputWrapper>
-      </InputWrapper> */}
       {data &&
         data.map((item) => {
           const { result } = item;

@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { customizable, brand, detailed } from 'images';
-import { HeroInfo } from 'components/Hero';
 
 const CardWrapper = styled.div`
   display: flex;
@@ -10,18 +9,16 @@ const CardWrapper = styled.div`
   gap: 5rem;
   @media (min-width: 1240px) {
     gap: 2rem;
-    height: 55vh;
   }
 `;
 
 const Cards = styled.div`
-  flex: 0 0 320px;
-  background-color: ${(p) => (p.right ? 'pink' : 'white')};
-  padding: 5rem 1.5rem 1.5rem;
-  position: relative;
   align-self: ${(p) => (p.right ? 'start' : 'end')};
+  background-color: ${(p) => (p.right ? 'pink' : 'white')};
+  position: relative;
+  flex: 0 1 320px;
+  padding: 5rem 1.5rem 1.5rem;
   border-radius: 8px;
-  text-align: center;
 
   .icon {
     background-color: purple;
@@ -35,10 +32,12 @@ const Cards = styled.div`
     right: 0;
     top: -35px;
   }
-  @media (min-width: 1135px) {
+  @media (min-width: 1240px) {
     flex: 0 0 350px;
     padding: 4rem 1.5rem 2.5rem;
     text-align: left;
+    margin-top: ${(p) => (p.right ? '-1rem' : '0')};
+    margin-bottom: ${(p) => (p.right ? '1rem' : '-2rem')};
   }
 `;
 const MiddleCard = styled(Cards)`
@@ -73,7 +72,7 @@ const CardItem = ({ right }) => {
   );
 };
 
-const Card = ({ right }) => {
+const Card = () => {
   return (
     <CardWrapper>
       <CardItem right />
