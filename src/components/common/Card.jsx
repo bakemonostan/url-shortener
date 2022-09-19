@@ -14,14 +14,15 @@ const CardWrapper = styled.div`
 
 const Cards = styled.div`
   align-self: ${(p) => (p.right ? 'start' : 'end')};
-  background-color: ${(p) => (p.right ? 'pink' : 'white')};
+  background-color: white;
   position: relative;
   flex: 0 1 320px;
   padding: 5rem 1.5rem 1.5rem;
   border-radius: 8px;
+  text-align: center;
 
   .icon {
-    background-color: purple;
+    background-color: hsl(257, 27%, 26%);
     width: 80px;
     height: 80px;
     padding: 1rem;
@@ -47,6 +48,7 @@ const MiddleCard = styled(Cards)`
 const Info = styled.div`
   p {
     font-size: 0.8rem;
+    padding: 1rem 0;
   }
   @media (min-width: 965px) {
     p {
@@ -55,18 +57,15 @@ const Info = styled.div`
   }
 `;
 
-const CardItem = ({ right }) => {
+const CardItem = ({ right, title, info, logo }) => {
   return (
     <Cards right={right}>
       <div className='icon'>
-        <img src={brand} alt='brand icon' />
+        <img src={logo} alt='brand icon' />
       </div>
       <Info>
-        <h2>Brand Recognition</h2>
-        <p>
-          Gain insights into who is clicking your links. Knowing when and where
-          people engage with your content helps inform better decisions.
-        </p>
+        <h2>{title}</h2>
+        <p>{info}</p>
       </Info>
     </Cards>
   );
@@ -75,20 +74,31 @@ const CardItem = ({ right }) => {
 const Card = () => {
   return (
     <CardWrapper>
-      <CardItem right />
+      <CardItem
+        right
+        title='Brand Recognition'
+        logo={brand}
+        info="Boost your brand recognition with each click. Generic links don't 
+        mean a thing. Branded links help instil confidence in your content."
+      />
       <MiddleCard>
         <div className='icon'>
-          <img src={brand} alt='brand icon' />
+          <img src={detailed} alt='brand icon' />
         </div>
         <Info>
-          <h2>Brand Recognition</h2>
+          <h2>Detailed Records</h2>
           <p>
             Gain insights into who is clicking your links. Knowing when and
             where people engage with your content helps inform better decisions.
           </p>
         </Info>
       </MiddleCard>
-      <CardItem />
+      <CardItem
+        title='Fully Customizable'
+        info='Improve brand awareness and content discoverability through customizable 
+        links, supercharging audience engagement.'
+        logo={customizable}
+      />
     </CardWrapper>
   );
 };

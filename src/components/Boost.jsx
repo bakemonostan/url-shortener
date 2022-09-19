@@ -22,11 +22,15 @@ const Wrapper = styled.section`
 
   button {
     color: white;
-    background: limegreen;
+    background: hsl(180, 66%, 49%);
     padding: 1rem 4rem;
     border: none;
     border-radius: 50px;
     font-weight: bold;
+    cursor: pointer;
+    &:hover {
+      background: hsl(180, 66%, 65%);
+    }
   }
 `;
 
