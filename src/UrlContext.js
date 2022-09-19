@@ -7,6 +7,7 @@ export function UrlProvider({ children }) {
   const [userInput, setUserInput] = useState('');
   const [url, setUrl] = useState('');
   const [data, setData] = useState([]);
+  const [link, setLink] = useState([]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,9 +20,11 @@ export function UrlProvider({ children }) {
         throw new Error(response.statusText);
       }
       const data = await response.json();
+      const { result } = data;
       setUrl(userInput);
-      setData((prev) => [...prev, data]);
-      console.log(data);
+      setData((prev) => [...prev, result]);
+      setLink(result.short_link);
+      // console.log(data);
       setUserInput('');
     } catch (error) {
       if (error) {
@@ -33,7 +36,7 @@ export function UrlProvider({ children }) {
   // console.log(data.code);
   return (
     <UrlContext.Provider
-      value={{ userInput, setUserInput, handleSubmit, url, data }}
+      value={{ userInput, setUserInput, handleSubmit, url, data, link }}
     >
       {children}
     </UrlContext.Provider>

@@ -65,7 +65,7 @@ const InputBar = () => {
   return (
     <Wrapper onSubmit={(e) => handleSubmit(e)}>
       <input
-        type='text'
+        type='url'
         className='input'
         value={userInput}
         onChange={(e) => setUserInput(e.target.value)}
