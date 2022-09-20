@@ -48,7 +48,30 @@ const LinkWrapper = styled.div`
     color: hsl(180, 66%, 65%);
   }
 
-  .btn {
+  @media (min-width: 965px) {
+    .container {
+      width: 90%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .link1 {
+      border: none;
+      padding: 0;
+    }
+
+    .link2 {
+      display: flex;
+      align-items: center;
+      color: hsl(180, 66%, 65%);
+      margin-top: 0;
+      gap: 1rem;
+    }
+
+    button {
+    }
   }
 `;
 
@@ -66,6 +89,7 @@ const Button = styled.button`
     background: hsl(180, 66%, 65%);
   }
   @media (min-width: 965px) {
+    margin-top: 0;
   }
 `;
 
@@ -86,7 +110,6 @@ const CardSection = () => {
     copyUrl();
     setSavedLink(link);
   };
-  console.log(savedLink);
   return (
     <Wrapper>
       <InputBar />
