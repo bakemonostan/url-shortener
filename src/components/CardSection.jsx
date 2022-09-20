@@ -4,6 +4,7 @@ import { useContext } from 'react';
 import UrlContext from 'UrlContext';
 import InputBar from './common/InputBar';
 import useCopyToClipboard from 'hooks/useCopyToClipboard';
+import useLocalStorage from 'hooks/useLocalStorage';
 
 const Wrapper = styled.section`
   background: rgba(60, 38, 105, 0.1);
@@ -71,33 +72,43 @@ const Button = styled.button`
 const CardSection = () => {
   const { data, link } = useContext(UrlContext);
   const [copyUrlStatus, copyUrl] = useCopyToClipboard(link);
-  let buttonText = 'Copy Url';
+  const [savedLink, setSavedLink] = useLocalStorage('shortLink', link);
+
+  let buttonText = 'Copy';
 
   if (copyUrlStatus === 'copied') {
-    buttonText = 'Copied';
+    buttonText = 'Copied!!';
   } else if (copyUrlStatus === 'failed') {
     buttonText = 'Copy failed!';
   }
+
+  const handleUrl = () => {
+    copyUrl();
+    setSavedLink(link);
+  };
+  console.log(savedLink);
   return (
     <Wrapper>
       <InputBar />
-      {data &&
+      {savedLink &&
         data.map((item) => {
-          const { code, short_link: link, full_short_link2: link2 } = item;
-          return (
+          const { code, full_short_link2: link2 } = item;
+          return savedLink ? (
             <LinkWrapper key={code}>
               <div className='container'>
                 <div className='link1'>
                   <p>{link2}</p>
                 </div>
                 <div className='link2'>
-                  <p>{link}</p>
+                  <p>{savedLink}</p>
                   <div className='btn'>
-                    <Button onClick={copyUrl}>{buttonText}</Button>
+                    <Button onClick={handleUrl}>{buttonText}</Button>
                   </div>
                 </div>
               </div>
             </LinkWrapper>
+          ) : (
+            ''
           );
         })}
       <Info>
